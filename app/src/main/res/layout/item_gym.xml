@@ -10,7 +10,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textViewGymName"
+            android:id="@+id/textViewGymTradeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -18,7 +18,14 @@
             tools:text="Gym Name" />
 
         <TextView
-            android:id="@+id/textViewGymDescription"
+            android:id="@+id/textViewGymDistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Gym District" />
+
+        <TextView
+            android:id="@+id/textViewGymDirection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

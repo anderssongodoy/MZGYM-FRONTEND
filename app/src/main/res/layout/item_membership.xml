@@ -20,4 +20,12 @@
         android:textAppearance="?android:textAppearanceSmall"
         android:text="Precio: $0.00"
         />
+
+    <TextView
+        android:id="@+id/textViewMembershipDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:text="Descripcion de la membresia"
+        />
 </LinearLayout>

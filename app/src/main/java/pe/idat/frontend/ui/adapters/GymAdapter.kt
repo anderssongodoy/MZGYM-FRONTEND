@@ -29,8 +29,9 @@ class GymAdapter(
 
         fun bind(gym: Gym) {
             binding.apply {
-                textViewGymName.text = gym.description
-                textViewGymDescription.text = gym.direction
+                textViewGymTradeName.text = gym.tradename
+                textViewGymDistrict.text = gym.district
+                textViewGymDirection.text = gym.direction
                 // Handle other bindings as needed
                 binding.root.setOnClickListener {
                     onItemClickListener.invoke(gym)

@@ -30,6 +30,7 @@ class MembershipAdapter(
             binding.apply {
                 textViewMembershipName.text = membership.name
                 textViewMembershipPrice.text = "Price: $${membership.price}"
+                textViewMembershipDescription.text = membership.description
                 root.setOnClickListener {
                     onItemClick.invoke(membership)
                 }

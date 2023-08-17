@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    private const val BASE_URL = "https://mzgymback.onrender.com"
+    private const val BASE_URL = "https://mzgym2-production.up.railway.app"
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()

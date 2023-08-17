@@ -34,19 +34,39 @@ class Prefs (val context:Context){
         storage.edit().putInt(SHARED_PRICE, price).apply()
     }
 
-    fun getPrice(price:Int){
-        storage.getInt(SHARED_PRICE, 0)
+    fun getPrice():Int{
+        return storage.getInt(SHARED_PRICE, 0)
     }
 
     fun setApellidos(apellidos:String){
         storage.edit().putString(SHARED_APELLIDOS, apellidos).apply()
     }
 
-    fun getApellidos(apellidos: String){
-        storage.getString(SHARED_APELLIDOS, "")!!
+    fun getApellidos():String{
+        return storage.getString(SHARED_APELLIDOS, "")!!
     }
 
     fun setDescripcion(descripcion:String){
         storage.edit().putString(SHARED_DESCRIPCION, descripcion).apply()
+    }
+
+    fun getDescripcion():String{
+        return storage.getString(SHARED_DESCRIPCION, "")!!
+    }
+
+    fun setUuid(uuid:String){
+        storage.edit().putString(SHARED_UUID, uuid).apply()
+    }
+
+    fun getUuid():String{
+        return storage.getString(SHARED_UUID, "")!!
+    }
+
+    fun setId(id:String){
+        storage.edit().putString(SHARED_ID, id).apply()
+    }
+
+    fun getId():String{
+        return storage.getString(SHARED_ID, "")!!
     }
 }
