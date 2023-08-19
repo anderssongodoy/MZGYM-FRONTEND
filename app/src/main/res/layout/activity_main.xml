@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="#1C1C1E"
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.tabs.TabLayout
@@ -16,6 +17,7 @@
         app:tabMode="fixed"
         app:tabIndicatorColor="@color/colorAccent"
         app:tabIndicatorHeight="2dp"
+        android:background="@drawable/background_transparent"
         app:tabSelectedTextColor="@color/colorAccent"
         app:tabTextColor="@color/colorPrimaryDark"
         app:layout_constraintTop_toTopOf="parent"

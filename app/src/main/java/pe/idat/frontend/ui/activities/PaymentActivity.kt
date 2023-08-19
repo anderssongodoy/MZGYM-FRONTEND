@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.button.MaterialButton
 import com.stripe.android.PaymentConfiguration
 import com.stripe.android.view.CardInputWidget
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.R
 
 class PaymentActivity : AppCompatActivity() {
@@ -17,28 +18,28 @@ class PaymentActivity : AppCompatActivity() {
 
     private lateinit var userEmail: String
     private lateinit var membershipName: String
-    private var membershipPrice: Double = 0.0
-    private lateinit var gymLocation: String
+    private var membershipPrice: Float = 0F
+    private lateinit var gymDirection: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
-        userEmail = intent.getStringExtra("userEmail") ?: ""
-        membershipName = intent.getStringExtra("membershipName") ?: ""
-        membershipPrice = intent.getDoubleExtra("membershipPrice", 0.0)
-        gymLocation = intent.getStringExtra("gymLocation") ?: ""
+        userEmail = MainActivity.prefs.getEmail()
+        membershipName = MainActivity.prefs.getDescripcion()
+        membershipPrice = MainActivity.prefs.getPrice().toFloat()
+        gymDirection = MainActivity.prefs.getDirection()
 
         // Mostrar los datos en la interfaz de usuario
         val userEmailTextView: TextView = findViewById(R.id.textViewUserEmail)
         val membershipNameTextView: TextView = findViewById(R.id.textViewMembershipName)
         val membershipPriceTextView: TextView = findViewById(R.id.textViewMembershipPrice)
-        val gymLocationTextView: TextView = findViewById(R.id.textViewGymLocation)
+        val gymLocationTextView: TextView = findViewById(R.id.textViewGymDirection)
 
         userEmailTextView.text = "User Email: $userEmail"
         membershipNameTextView.text = "Membership Name: $membershipName"
         membershipPriceTextView.text = "Membership Price: $membershipPrice"
-        gymLocationTextView.text = "Gym Location: $gymLocation"
+        gymLocationTextView.text = "Gym Location: $gymDirection"
 
         PaymentConfiguration.init(applicationContext, "pk_test_51NcLL5AHgKa6SdywNHbQpS9qsOSJ3bQkaBEDn2wqmVl25XF1ryxLlFLtQOMn430tMcJcw2ll6s9BL1k9GL4lWIhw00k4PcwkOK")
 

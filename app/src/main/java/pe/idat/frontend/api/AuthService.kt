@@ -22,7 +22,7 @@ interface AuthService {
     @POST("api/authentication/sign-in")
     fun signIn(@Body signInRequest: SignInRequest): Call<SignInResponse>
 
-    @POST("api/authentication/sign-up")
+    @POST("api/authentication/register")
     fun signUp(@Body signUpRequest: SignUpRequest): Call<SignUpResponse>
 
     @GET("authentication/verify/{verificationCode}")

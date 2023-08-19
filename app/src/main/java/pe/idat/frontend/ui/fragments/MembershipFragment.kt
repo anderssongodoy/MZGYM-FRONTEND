@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.api.ApiClient
 import pe.idat.frontend.api.models.Membership
 import pe.idat.frontend.databinding.FragmentMembershipBinding
@@ -46,6 +47,8 @@ class MembershipFragment : Fragment() {
 
         val membershipAdapter = MembershipAdapter(emptyList()) { selectedMembership ->
             val editor = sharedPreferences.edit()
+            MainActivity.prefs.setPrice(selectedMembership.price.toFloat())
+            MainActivity.prefs.setDescripcion(selectedMembership.description)
             editor.putString("selectedMembershipUuid", selectedMembership.membershipUuid)
             editor.putString("selectedMembershipName", selectedMembership.name)
             editor.putString("selectedMembershipPrice", selectedMembership.price.toString())

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.R
 import pe.idat.frontend.api.ApiClient
 import pe.idat.frontend.databinding.FragmentGymBinding
@@ -37,19 +38,12 @@ class GymFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Obtener el ID del membership seleccionado desde el fragment anterior
-        val userEmail = arguments?.getString("userEmail") ?: ""
-        val membershipName = arguments?.getString("membershipName") ?: ""
-        val membershipPrice = arguments?.getDouble("membershipPrice") ?: 0.0
 
         val recyclerView: RecyclerView = binding.recyclerViewGyms
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val gymAdapter = GymAdapter(emptyList()) { selectedGym ->
-            val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("selectedGymLocation", selectedGym.direction)
-            editor.apply()
+            MainActivity.prefs.setDirection(selectedGym.direction)
 
             val intent = Intent(requireContext(), PaymentActivity::class.java)
             startActivity(intent)

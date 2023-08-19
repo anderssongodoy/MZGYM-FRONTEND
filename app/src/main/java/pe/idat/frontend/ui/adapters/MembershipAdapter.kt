@@ -29,7 +29,7 @@ class MembershipAdapter(
         fun bind(membership: Membership) {
             binding.apply {
                 textViewMembershipName.text = membership.name
-                textViewMembershipPrice.text = "Price: $${membership.price}"
+                textViewMembershipPrice.text = "Precio: $${membership.price}"
                 textViewMembershipDescription.text = membership.description
                 root.setOnClickListener {
                     onItemClick.invoke(membership)

@@ -4,13 +4,14 @@ import android.content.Context
 
 class Prefs (val context:Context){
     val SHARED_DB = "GYMDB"
-    val SHARED_NOMBRE = ""
-    val SHARED_DIRECTION = ""
-    val SHARED_PRICE = ""
-    val SHARED_APELLIDOS = ""
-    val SHARED_DESCRIPCION = ""
-    val SHARED_UUID = ""
-    val SHARED_ID = ""
+    val SHARED_NOMBRE = "nombre"
+    val SHARED_DIRECTION = "direction"
+    val SHARED_PRICE = "price"
+    val SHARED_APELLIDOS = "apellidos"
+    val SHARED_DESCRIPCION = "descripcion"
+    val SHARED_UUID = "uuid"
+    val SHARED_ID = "id"
+    val SHARED_EMAIL = "email"
 
     val storage = context.getSharedPreferences(SHARED_DB, 0)
 
@@ -30,12 +31,12 @@ class Prefs (val context:Context){
         return storage.getString(SHARED_DIRECTION, "")!!
     }
 
-    fun setPrice(price:Int){
-        storage.edit().putInt(SHARED_PRICE, price).apply()
+    fun setPrice(price:Float){
+        storage.edit().putFloat(SHARED_PRICE, price).apply()
     }
 
-    fun getPrice():Int{
-        return storage.getInt(SHARED_PRICE, 0)
+    fun getPrice(): Float {
+        return storage.getFloat(SHARED_PRICE, 0F)
     }
 
     fun setApellidos(apellidos:String){
@@ -68,5 +69,13 @@ class Prefs (val context:Context){
 
     fun getId():String{
         return storage.getString(SHARED_ID, "")!!
+    }
+
+    fun setEmail(email:String){
+        storage.edit().putString(SHARED_EMAIL, email).apply()
+    }
+
+    fun getEmail():String{
+        return storage.getString(SHARED_EMAIL, "")!!
     }
 }

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.api.ApiClient
 import pe.idat.frontend.api.models.SignUpRequest
 import pe.idat.frontend.api.models.SignUpResponse
@@ -58,11 +59,10 @@ class RegisterFragment : Fragment() {
                     val signUpResponse = response.body()
                     if (signUpResponse != null) {
                         showSuccessToast("Registro exitoso")
-
-                        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-                        val editor = sharedPreferences.edit()
-                        editor.putString("userEmail", email)
-                        editor.apply()
+                        //MainActivity.prefs.setEmail(email)
+                        MainActivity.prefs.setEmail(response.body()!!.email)
+                        MainActivity.prefs.setNombre(name)
+                        MainActivity.prefs.setApellidos(lastName)
 
                         val intent = Intent(requireContext(), MembershipActivity::class.java)
                         startActivity(intent)
