@@ -1,15 +1,18 @@
 package pe.idat.frontend.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.api.ApiClient
 import pe.idat.frontend.api.models.SignInRequest
 import pe.idat.frontend.api.models.SignInResponse
 import pe.idat.frontend.databinding.FragmentLoginBinding
+import pe.idat.frontend.ui.activities.BottomNavigationActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +53,13 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful) {
                     val signInResponse = response.body()
                     if (signInResponse != null) {
-                            val token = signInResponse.token
+                        showToast("Ingreso Correcto")
+                        MainActivity.prefs.setEmail(response.body()!!.email)
+                        MainActivity.prefs.setNombre(response.body()!!.name)
+                        MainActivity.prefs.setApellidos(response.body()!!.lastName)
+                        MainActivity.prefs.setUuid(response.body()!!.accountUuid)
+                        val intent = Intent(requireContext(), BottomNavigationActivity::class.java)
+                        startActivity(intent)
                             // Guardar el token en SharedPreferences o en alguna otra forma de persistencia.
 
                     } else {

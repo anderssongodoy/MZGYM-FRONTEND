@@ -61,8 +61,9 @@ class RegisterFragment : Fragment() {
                         showSuccessToast("Registro exitoso")
                         //MainActivity.prefs.setEmail(email)
                         MainActivity.prefs.setEmail(response.body()!!.email)
-                        MainActivity.prefs.setNombre(name)
-                        MainActivity.prefs.setApellidos(lastName)
+                        MainActivity.prefs.setNombre(response.body()!!.name)
+                        MainActivity.prefs.setApellidos(response.body()!!.lastname)
+                        MainActivity.prefs.setUuid(response.body()!!.uuid)
 
                         val intent = Intent(requireContext(), MembershipActivity::class.java)
                         startActivity(intent)

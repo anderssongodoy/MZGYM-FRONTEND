@@ -27,4 +27,8 @@ object ApiClient {
         retrofit.create(GymService::class.java)
     }
 
+    val notificationService: NotificationService by lazy {
+        retrofit.create(NotificationService::class.java)
+    }
+
 }
