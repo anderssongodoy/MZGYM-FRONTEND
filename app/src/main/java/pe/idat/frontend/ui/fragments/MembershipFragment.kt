@@ -3,6 +3,7 @@ package pe.idat.frontend.ui.fragments
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,7 +79,8 @@ class MembershipFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Membership>>, t: Throwable) {
-                // Handle failure
+                Log.e("MembershipAPI", "Error en la llamada a la API de membresías", t)
+                Log.e("MembershipAPI", "Mensaje de error: ${t.message}")
             }
         })
     }

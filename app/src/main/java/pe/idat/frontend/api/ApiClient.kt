@@ -31,4 +31,8 @@ object ApiClient {
         retrofit.create(NotificationService::class.java)
     }
 
+    val customerService: CustomerService by lazy{
+        retrofit.create(CustomerService::class.java)
+    }
+
 }

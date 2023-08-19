@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import pe.idat.frontend.MainActivity
 import pe.idat.frontend.R
 
 class HomeFragment : Fragment() {
@@ -25,16 +26,18 @@ class HomeFragment : Fragment() {
         val bottomNavigationView: BottomNavigationView = requireActivity().findViewById(R.id.nav_view)
 
         // Obtener los datos del usuario, membresía y gimnasio de los argumentos
-        val userEmail = arguments?.getString("userEmail") ?: ""
-        val membershipName = arguments?.getString("membershipName") ?: ""
-        val membershipPrice = arguments?.getDouble("membershipPrice", 0.0) ?: 0.0
-        val gymLocation = arguments?.getString("gymLocation") ?: ""
+        val userEmail = MainActivity.prefs.getEmail()
+        val membershipName = MainActivity.prefs.getDescripcion()
+        val userName = MainActivity.prefs.getNombre()
+        val gymDirection = MainActivity.prefs.getDirection()
 
         // Mostrar los datos en la interfaz de usuario
-        textViewWelcome.text = "Bienvenido, $userEmail\n"
-        textViewWelcome.append("Membresía: $membershipName\n")
-        textViewWelcome.append("Precio de la membresía: $membershipPrice\n")
-        textViewWelcome.append("Ubicación del gimnasio: $gymLocation")
+        textViewWelcome.text = "Bienvenido, $userName\n"
+        textViewWelcome.append("Correo: $userEmail\n")
+        textViewWelcome.append("Tu menbresía: $membershipName\n")
+        textViewWelcome.append("Ubicación del gimnasio: $gymDirection\n")
+
+        textViewWelcome.append("Proximamente implementaremos más cosas en esta vista")
 
         // Hacer que el BottomNavigationView esté visible
         bottomNavigationView.visibility = View.VISIBLE
