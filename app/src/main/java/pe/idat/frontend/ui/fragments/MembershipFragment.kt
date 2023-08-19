@@ -48,7 +48,7 @@ class MembershipFragment : Fragment() {
         val membershipAdapter = MembershipAdapter(emptyList()) { selectedMembership ->
             val editor = sharedPreferences.edit()
             MainActivity.prefs.setPrice(selectedMembership.price.toFloat())
-            MainActivity.prefs.setDescripcion(selectedMembership.description)
+            MainActivity.prefs.setDescripcion(selectedMembership.name)
             editor.putString("selectedMembershipUuid", selectedMembership.membershipUuid)
             editor.putString("selectedMembershipName", selectedMembership.name)
             editor.putString("selectedMembershipPrice", selectedMembership.price.toString())

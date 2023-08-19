@@ -36,10 +36,10 @@ class PaymentActivity : AppCompatActivity() {
         val membershipPriceTextView: TextView = findViewById(R.id.textViewMembershipPrice)
         val gymLocationTextView: TextView = findViewById(R.id.textViewGymDirection)
 
-        userEmailTextView.text = "User Email: $userEmail"
-        membershipNameTextView.text = "Membership Name: $membershipName"
-        membershipPriceTextView.text = "Membership Price: $membershipPrice"
-        gymLocationTextView.text = "Gym Location: $gymDirection"
+        userEmailTextView.text = "$userEmail"
+        membershipNameTextView.text = "Membresia: $membershipName"
+        membershipPriceTextView.text = "Precio: $membershipPrice"
+        gymLocationTextView.text = "Ubicación: $gymDirection"
 
         PaymentConfiguration.init(applicationContext, "pk_test_51NcLL5AHgKa6SdywNHbQpS9qsOSJ3bQkaBEDn2wqmVl25XF1ryxLlFLtQOMn430tMcJcw2ll6s9BL1k9GL4lWIhw00k4PcwkOK")
 
